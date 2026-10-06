@@ -1,2 +1,115 @@
-/*ALTERAR A COR DO FUNDO DA PÁGINA 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+header p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-box {
+    width: min(90vw, 420px);
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#botaojogar {
+    background: #f59e0b;
+    color: #111827;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.area-chute {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#botaochutar {
+    background: #22c55e;
+    color: #062b12;
+}
+
+#resultado {
+    margin-top: 18px;
+    min-height: 48px;
+    line-height: 1.5;
+    color: #f8fafc;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+details p {
+    margin-top: 8px;
+    color: #dbeafe;
+}

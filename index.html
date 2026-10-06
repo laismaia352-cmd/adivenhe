@@ -9,20 +9,28 @@
 <body>
     <header>
         <h1>Adivinhe o numero</h1>
-        <P>Vamos jogar? Vou pensar em um numero e quero que você me ajude a adinhar. </P>
+        <P>Vamos jogar? Vou pensar em um numero até 100 e quero que você me ajude a adinhar. </P>
         <p>Fique esperto você só tem 05 chances</p>
     </header>
 
     <main>
-        <button id="botaojogar">Vamos Jogar</button>
-        <button id="botaochutar"> CHUTAR </button>
-        <input type="number" id="CHUTE">
-        <label for="CHUTE">Seu chute:</label>
-        <details>
-            <summary> DICA</summary>
-            <p> O número está entre 1 e 10. </p>
+        <div class="game-box">
+            <button id="botaojogar">Vamos Jogar</button>
 
-        </details>
+            <div class="area-chute">
+                <label for="CHUTE">Seu chute:</label>
+                <input type="number" id="CHUTE" min="1" max="100" placeholder="1 a 100" >
+                <button id="botaochutar" >CHUTAR</button>
+            </div>
+
+            <p id="resultado" aria-live="polite">Clique em "Vamos Jogar" para começar.</p>
+
+            <details>
+                <summary>DICA</summary>
+                <p id="dica">▶ DICA</p>
+                
+            </details>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
