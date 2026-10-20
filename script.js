@@ -4,15 +4,15 @@ let tentativas;
 
 function sortearNumero(){
     numeroPensado=
-Math.floor(Math.random()*101);
+Math.floor(Math.random()*100)+1;
 tentativas = 5;
-console.log(numeroPensado);
 alert("Novo numero sorteado tente advinhar!! Você tem 05 tentativas");
 
 
     document.getElementById("dica1").innerText = "▶ DICA 1";
     document.getElementById("dica2").innerText = "▶ DICA 2";
-    document.getElementById("resultado").innerText = "Você tem 5 tentativas restantes.";
+    document.getElementById("resultado").innerText = "Digite um número entre 1 e 100 e clique em 'Chutar' para tentar advinhar!";
+    document.getElementById("tentativas").innerText = "Tentativas restantes: " + tentativas;
     document.getElementById("CHUTE").value = "";
 }
 
@@ -43,6 +43,17 @@ function verificarChute(){
         alert("Suas tentativas acabaram! Clique em 'Vamos Jogar' para iniciar uma nova partida.");
         return;
     }
+    // Validação para garantir que o chute esteja entre 1 e 100
+    if (chuteDoUsuario < 1 || chuteDoUsuario > 100) {
+        alert("Por favor, digite um número entre 1 e 100.");
+        return;
+    }
+
+    // Validação para garantir que o número é inteiro (não decimal)
+    if (!Number.isInteger(chuteDoUsuario)) {
+        alert("Por favor, digite apenas números inteiros.");
+        return;
+    }
 
 
     // DIMINUI UMA TENTATIVA A CADA CHUTE 
@@ -54,25 +65,24 @@ function verificarChute(){
    if (chuteDoUsuario === numeroPensado) {
         alert("Parabéns! Você acertou o número! 🎉");
         document.getElementById("resultado").innerText = "🎉 Você acertou!";
+        document.getElementById("tentativas").innerText = "";
         document.getElementById("dica1").innerText = "🎉 Parabéns!";
         document.getElementById("dica2").innerText = "";
         numeroPensado = undefined; // Encerra a partida
     }
     else if (tentativas > 0) {
         alert("Que pena! O número está incorreto. Restam " + tentativas + " tentativa(s)! ❌");
-        document.getElementById("resultado").innerText = "Tentativas restantes: " + tentativas;
+             
+        // Atualiza o parágrafo exclusivo de tentativas
+        document.getElementById("tentativas").innerText = "Tentativas restantes: " + tentativas;
+        document.getElementById("resultado").innerText = "Tente novamente!";
 
 
-
- if (chuteDoUsuario < numeroPensado) {
-       alert("Que pena! O número está incorreto. Restam " + tentativas + " tentativa(s)! ❌");
-        document.getElementById("resultado").innerText = "Tentativas restantes: " + tentativas;
+ if (chuteDoUsuario < numeroPensado) {        
         document.getElementById("dica1").innerText = "▶ DICA: O número pensado é MAIOR!";
     } 
     
     else if (chuteDoUsuario > numeroPensado) {
-        alert("Que pena! O número está incorreto. Restam " + tentativas + " tentativa(s)! ❌");
-        document.getElementById("resultado").innerText = "Tentativas restantes: " + tentativas;
         document.getElementById("dica1").innerText = "▶ DICA: O número pensado é MENOR!";
     } 
     if (numeroPensado % 2 === 0)
@@ -85,10 +95,12 @@ function verificarChute(){
     }
     
     // Caso errou e acabaram as tentativas (Game Over)
-    else {
+        else {
         alert("Fim de jogo! Você usou todas as 5 tentativas. O número correto era " + numeroPensado + ". 😞");
-        document.getElementById("dica").innerText = "▶ GAME OVER! O número era " + numeroPensado;
+        document.getElementById("dica1").innerText = "▶ GAME OVER! O número era " + numeroPensado;
         document.getElementById("resultado").innerText = "Suas chances acabaram! Clique em 'Vamos Jogar' para tentar novamente.";
+        document.getElementById("tentativas").innerText = ""; // Limpa o contador
+        document.getElementById("dica2").innerText = "";
         numeroPensado = undefined; // Encerra a partida
     }
 
@@ -100,7 +112,7 @@ function verificarChute(){
    
 
 
-
+ 
 
 
 
